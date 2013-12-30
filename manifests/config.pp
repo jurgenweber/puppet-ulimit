@@ -6,7 +6,7 @@ class ulimit::config {
     owner => $::ulimit::params::config_user,
   }
 
-  file { $::ulimit::config_dir:
+  file { $::ulimit::params::config_dir:
     ensure  => directory,
     recurse => true,
     purge   => $::ulimit::params::purge,

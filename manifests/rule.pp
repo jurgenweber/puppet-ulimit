@@ -52,6 +52,9 @@ define ulimit::rule (
   $ulimit_value,
   $ensure = present,
 ) {
+
+  include ulimit::params
+
   File {
     group => $::ulimit::params::config_group,
     owner => $::ulimit::params::config_user,

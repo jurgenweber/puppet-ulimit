@@ -6,4 +6,3 @@ class ulimit::params {
   $config_user  = 'root'
   $purge        = true
 }
-
