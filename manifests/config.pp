@@ -2,14 +2,14 @@
 #
 class ulimit::config {
   File {
-    group => $::ulimit::config_group,
-    owner => $::ulimit::config_user,
+    group => $::ulimit::params::config_group,
+    owner => $::ulimit::params::config_user,
   }
 
   file { $::ulimit::config_dir:
     ensure  => directory,
     recurse => true,
-    purge   => $::ulimit::purge,
+    purge   => $::ulimit::params::purge,
   }
 }
 

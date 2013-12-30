@@ -53,14 +53,14 @@ define ulimit::rule (
   $ensure = present,
 ) {
   File {
-    group => $::ulimit::config_group,
-    owner => $::ulimit::config_user,
+    group => $::ulimit::params::config_group,
+    owner => $::ulimit::params::config_user,
   }
 
   case $ensure {
     'present': {
       file {
-        "${::ulimit::config_dir}/${name}.conf":
+        "${::ulimit::params::config_dir}/${name}.conf":
           ensure  => $ensure,
           content => template ('ulimit/rule.conf.erb');
       }
@@ -68,7 +68,7 @@ define ulimit::rule (
 
     'absent': {
       file {
-        "${::ulimit::config_dir}/${name}":
+        "${::ulimit::params::config_dir}/${name}":
           ensure => $ensure;
       }
     }
